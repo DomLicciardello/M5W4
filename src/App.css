@@ -1,0 +1,36 @@
+body {
+  background-color: #2B3035
+}
+
+.MyNav-Style {
+  background-color: #FFFFFF !important;
+  padding: 0px;
+  font-size: 20px;
+}
+
+.Welcome-Style {
+  height: 450px;
+  object-fit: cover;
+}
+
+.Welcome-TextStyle {
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.Welcome-TextStyle h5 {
+  font-size: 40px;
+}
+
+.Welcome-TextStyle p {
+  font-size: 25px;
+}
+
+.Book-Card {
+  height: 100%;
+}
+
+.Card-Img {
+  height: 450px;
+  object-fit: scale-down;
+}
