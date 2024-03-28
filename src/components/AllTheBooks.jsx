@@ -1,23 +1,37 @@
-import { Card, Col, Row } from 'react-bootstrap'
+import { Col, Row, Form } from 'react-bootstrap'
+import { useState } from 'react'
 import fantasy from '../data/fantasy.json'
+import SingleBook from './SingleBook'
 
 const AllTheBooks = () => {
+  const [search, setSearch] = useState('')
+
   return (
+    <>
+    <Row className='m-5 justify-content-center'>
+      <Col xs={12} style={{maxWidth:"400px"}}>
+        <Form.Group>
+          <Form.Control
+          type="search"
+          placeholder="Cerca un libro..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          />
+        </Form.Group>
+      </Col>
+    </Row>
     <Row className="g-2">
-      {fantasy.map((book, index) => {
+      {fantasy
+      .filter((b) => b.title.toLowerCase().includes(search))
+      .map((book, index) => {
         return index < 20 && (
           <Col xs={12} md={4} xl={3} key={book.asin}>
-            <Card className="d-flex flex-column Book-Card">
-              <Card.Img className="Card-Img" variant="top" src={book.img} />
-              <Card.Body>
-                <Card.Title>{book.title}</Card.Title>
-                <Card.Text>Prezzo: {book.price}€</Card.Text>
-              </Card.Body>
-            </Card>
+            <SingleBook book={book} />
           </Col>
         )
       })}
     </Row>
+    </>
   )
 }
 
